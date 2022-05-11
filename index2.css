@@ -1,54 +1,27 @@
-function validate() {  
-	var result = "";	
-	result += validateName(); 	
-	result += validateEmail();
-	result += validatePassword();
-	result += validateTerms();
-	
-	if (result == "") return true;
-	
-	alert("Validation Result:\n\n" + result);
-	return false;	
+body {
+  font-family: Verdana, sans-serif;
 }
 
-function validateName() {
-	var name = document.getElementsByName("name")[0].value;
-	if (name.length <= 3)
-		return "Name should be at least three characters.\n";	
-	return "";
+input {
+	border-radius: 5px;
+	padding: 5px;
 }
 
-function validatePassword() {
-	var password = valueOf("password");
-	var retype = valueOf("retype_password");
-	
-	if (password.length <= 6) 
-		return "Password should be at least 6 characters.\n";
-	
-	if (password != retype) 
-		return "Passwords do not match.\n";	
-	return "";
+div.button {
+	text-align: right;
 }
 
-function validateEmail() {
-	var email = valueOf("email");
-	var retype = valueOf("retype_email");
-	
-	if (email.indexOf('@') == -1) 
-		return "Email should be a valid address.\n";
-	
-	if (email != retype)
-		return "Email addresses do not match.\n";
-	return "";	
+a {
+	text-decoration: none;
+	color: red;
 }
 
-function validateTerms() {
-	var terms = document.getElementsByName("terms")[0];
-	if (!terms.checked)
-		return "Please accept the Terms of Service and Privacy Policy";	
-	return "";
+form { 
+	width: 480px; 
+	margin: auto;
+	padding: 5px; 
+	border: solid black 1px;	
+	border-radius: 5px;  
+	box-shadow: 5px 5px 2px #888;
 }
 
-function valueOf(name) {
-	return document.getElementsByName(name)[0].value;
-}

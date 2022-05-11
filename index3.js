@@ -1,26 +1,21 @@
-body {
-  font-family: Verdana, sans-serif;
-}
+const navBtn = document.getElementById('nav-btn');
+const cancelBtn = document.getElementById('cancel-btn');
+const sideNav = document.getElementById('sidenav');
+const modal = document.getElementById('modal');
 
-input {
-	border-radius: 5px;
-	padding: 5px;
-}
+navBtn.addEventListener("click", function(){
+    sideNav.classList.add('show');
+    modal.classList.add('showModal');
+});
 
-div.button {
-	text-align: right;
-}
+cancelBtn.addEventListener('click', function(){
+    sideNav.classList.remove('show');
+    modal.classList.remove('showModal');
+});
 
-a {
-	text-decoration: none;
-	color: #e51;
-}
-
-form { 
-	width: 480px; 
-	margin: auto;
-	padding: 5px; 
-	border: solid black 1px;	
-	border-radius: 5px;  
-	box-shadow: 5px 5px 2px #888;
-}
+window.addEventListener('click', function(event){
+    if(event.target === modal){
+        sideNav.classList.remove('show');
+        modal.classList.remove('showModal');
+    }
+});
